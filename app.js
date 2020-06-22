@@ -20,7 +20,10 @@ function makeMarketMapData (marketsData) {
       const data = findCityByName(i)[0]
       if(index === 0) {
         obj.id = data.id
-        obj.properties = data.properties
+        obj.properties = {
+          ...data.properties,
+          name: market
+        }
         obj.geometry = {
           "type": 'MultiPolygon',
           "coordinates": [],
@@ -81,7 +84,7 @@ function combineMap(citiesData) {
   })
   const featrues = features.filter(i => i)
   
-  fs.appendFile('map.js', JSON.stringify(featrues.concat(marketMap)), (err) => {
+  fs.appendFile(`${__dirname}/js/china.js`, JSON.stringify(featrues.concat(marketMap)), (err) => {
     if(err) {
       console.log('write map error')
     }
@@ -91,4 +94,26 @@ function combineMap(citiesData) {
   })
 }
 
-combineMap(JSON.parse(JSON.stringify(markets)))
+// combineMap(markets)
+
+function getCitiesMarket(citiesData) {
+  Object.keys(citiesData).forEach(city => {
+    const json =  {
+      "type": "FeatureCollection",
+      "UTF8Encoding": true,
+      "features": []
+    }
+    citiesData[city].forEach(i => {
+      const data = findCityByName(i)[0]
+      json.features.push(data)
+    })
+    fs.appendFile(`${__dirname}/map/${city}.json`, JSON.stringify(json), (err) => {
+      if (err) {
+        console.log(`write  ${city}.json error`, err)
+      } else {
+        console.log(`write  ${city}.json success`)
+      }
+    })
+  })
+}
+getCitiesMarket(markets)

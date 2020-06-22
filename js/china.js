@@ -1,7 +1,7 @@
 export const map = {
-  "UTF8Encoding": true,
   "type": "FeatureCollection",
-  "features":[
+  "features":
+[
   {
     id: "621200",
     geometry: {
@@ -534,6 +534,46 @@ export const map = {
     properties: { cp: [121.509062, 25.044332], name: "台湾", childNum: 5 },
   },
   {
+    id: "110000",
+    geometry: {
+      type: "Polygon",
+      coordinates: [
+        "@@RºaYÕQaúÍÔiþĩȨWĢü|Ėu[qb[swP@ÅğP¿{\\¯Y²·Ñ¨j¯X\\¯MSvU¯YIŕY{[fk­VÁûtŷmiÍt_H»Ĩ±d`¹­{bwYr³S]§§o¹qGtm_SŧoaFLgQN_dV@Zom_ć\\ßW´ÕiœRcfio§ËgToÛJíĔóu|wP¤XnO¢ÉŦ¯pNÄā¤zâŖÈRpŢZÚ{GrFt¦Òx§ø¹RóäV¤XdżâºWbwŚ¨Ud®bêņ¾jnŎGŃŶnzÚScîĚZen¬",
+      ],
+      encodeOffsets: [[119421, 42013]],
+    },
+    properties: { cp: [116.405285, 39.904989], name: "北京", childNum: 1 },
+  },
+  {
+    id: "310000",
+    geometry: {
+      type: "MultiPolygon",
+      coordinates: [
+        [
+          "@@ɧư¬EpƸÁx]",
+          "@@©²",
+          "@@MA",
+          "@@QpªKWT§¨",
+          "@@bŝÕÕEȣÚƥêImɇǦèÜĠÚÄÓŴ·ʌÇ",
+          "@@Sô¤r]ìƬįǜûȬɋŭ×^sYɍDŋŽąñCG²«ªč@h_p¯A{oloY¬j@Ĳ`gQÚpptǀ^MĲvtbe´Rh@oj¨",
+          "@@ÆLH{a}Eo¦",
+        ],
+      ],
+      encodeOffsets: [
+        [
+          [124702, 32062],
+          [124547, 32200],
+          [124808, 31991],
+          [124726, 32110],
+          [124903, 32376],
+          [124065, 32166],
+          [124870, 31965],
+        ],
+      ],
+    },
+    properties: { cp: [121.472644, 31.231706], name: "上海", childNum: 7 },
+  },
+  {
     id: "810000",
     geometry: {
       type: "MultiPolygon",
@@ -566,35 +606,6 @@ export const map = {
       encodeOffsets: [[116285, 22746]],
     },
     properties: { cp: [113.54909, 22.198951], name: "澳门", childNum: 1 },
-  },
-  {
-    id: "310000",
-    properties: { cp: [121.472644, 31.231706], name: "上海", childNum: 7 },
-    geometry: {
-      type: "MultiPolygon",
-      coordinates: [
-        [
-          "@@ɧư¬EpƸÁx]",
-          "@@©²",
-          "@@MA",
-          "@@QpªKWT§¨",
-          "@@bŝÕÕEȣÚƥêImɇǦèÜĠÚÄÓŴ·ʌÇ",
-          "@@Sô¤r]ìƬįǜûȬɋŭ×^sYɍDŋŽąñCG²«ªč@h_p¯A{oloY¬j@Ĳ`gQÚpptǀ^MĲvtbe´Rh@oj¨",
-          "@@ÆLH{a}Eo¦",
-        ],
-      ],
-      encodeOffsets: [
-        [
-          [124702, 32062],
-          [124547, 32200],
-          [124808, 31991],
-          [124726, 32110],
-          [124903, 32376],
-          [124065, 32166],
-          [124870, 31965],
-        ],
-      ],
-    },
   },
   {
     id: "440300",
@@ -925,19 +936,6 @@ export const map = {
         [[112127, 20351]],
         [[112781, 20030]],
       ],
-    },
-  },
-  {
-    id: "110000",
-    properties: { cp: [116.405285, 39.904989], name: "北京", childNum: 1 },
-    geometry: {
-      type: "MultiPolygon",
-      coordinates: [
-        [
-          "@@RºaYÕQaúÍÔiþĩȨWĢü|Ėu[qb[swP@ÅğP¿{\\¯Y²·Ñ¨j¯X\\¯MSvU¯YIŕY{[fk­VÁûtŷmiÍt_H»Ĩ±d`¹­{bwYr³S]§§o¹qGtm_SŧoaFLgQN_dV@Zom_ć\\ßW´ÕiœRcfio§ËgToÛJíĔóu|wP¤XnO¢ÉŦ¯pNÄā¤zâŖÈRpŢZÚ{GrFt¦Òx§ø¹RóäV¤XdżâºWbwŚ¨Ud®bêņ¾jnŎGŃŶnzÚScîĚZen¬",
-        ],
-      ],
-      encodeOffsets: [[[119421, 42013]]],
     },
   },
   {
@@ -3291,7 +3289,7 @@ export const map = {
   },
   {
     id: "210100",
-    properties: { cp: [123.429096, 41.796767], name: "沈阳", childNum: 1 },
+    properties: { cp: [123.429096, 41.796767], name: "辽吉", childNum: 1 },
     geometry: {
       type: "MultiPolygon",
       coordinates: [
@@ -3696,7 +3694,11 @@ export const map = {
   },
   {
     id: "140100",
-    properties: { cp: [112.549248, 37.857014], name: "太原", childNum: 1 },
+    properties: {
+      cp: [112.549248, 37.857014],
+      name: "陕甘宁新青晋",
+      childNum: 1,
+    },
     geometry: {
       type: "MultiPolygon",
       coordinates: [
@@ -4142,7 +4144,7 @@ export const map = {
   },
   {
     id: "430800",
-    properties: { cp: [110.479921, 29.127401], name: "张家界", childNum: 1 },
+    properties: { cp: [110.479921, 29.127401], name: "长沙", childNum: 1 },
     geometry: {
       type: "MultiPolygon",
       coordinates: [
@@ -4219,7 +4221,7 @@ export const map = {
   },
   {
     id: "350900",
-    properties: { cp: [119.527082, 26.65924], name: "宁德", childNum: 39 },
+    properties: { cp: [119.527082, 26.65924], name: "福州", childNum: 39 },
     geometry: {
       type: "MultiPolygon",
       coordinates: [
