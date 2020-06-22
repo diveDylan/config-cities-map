@@ -1,4 +1,7 @@
-export const marketMap = [
+export const marketMap = {
+  "UTF8Encoding": true,
+  "type": "FeatureCollection",
+  "features":[
   {
     id: "621200",
     geometry: {
@@ -5672,4 +5675,5 @@ export const marketMap = [
       ],
     },
   },
-];
+]
+}
