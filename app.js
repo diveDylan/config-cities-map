@@ -16,12 +16,13 @@ function makeMarketMapData (marketsData) {
   const list = Object.keys(marketsData).map(market => {
     const obj = {}
     marketsData[market].map((i, index) => {
+      console.log(i)
       const data = findCityByName(i)[0]
       if(index === 0) {
         obj.id = data.id
         obj.properties = data.properties
         obj.geometry = {
-          "type": data.geometry.type,
+          "type": 'MultiPolygon',
           "coordinates": [],
           "encodeOffsets": []
         }
@@ -31,12 +32,12 @@ function makeMarketMapData (marketsData) {
     })
     return obj
   })
-  fs.appendFile('map.js', JSON.stringify(list), (err) => {
-    if (err) throw err;
-    console.log('数据已被追加到文件');
-  });
+  // fs.appendFile('map.js', JSON.stringify(list), (err) => {
+  //   if (err) throw err;
+  //   console.log('数据已被追加到文件');
+  // });
+  return list
 }
-makeMarketMapData(markets)
 
 // format excel
 const xlsx = require('node-xlsx').default;
@@ -61,3 +62,33 @@ function makeMarketMap (fileName, outputFile) {
     console.log('数据已被追加到文件');
   });
 }
+
+/**
+ * 
+ * @param {Array} citiesData cities map data
+ * @return {File} map js file
+ */
+function combineMap(citiesData) {
+  let list = []
+  const marketMap = makeMarketMapData(citiesData)
+  Object.keys(citiesData).forEach(city => {
+     list.push(...citiesData[city])
+  })
+  features.forEach((feature, index) => {
+    if(list.includes(feature.properties.name)) {
+      features[index] = null
+    }
+  })
+  const featrues = features.filter(i => i)
+  
+  fs.appendFile('map.js', JSON.stringify(featrues.concat(marketMap)), (err) => {
+    if(err) {
+      console.log('write map error')
+    }
+    else {
+      console.log('write map file success')
+    }
+  })
+}
+
+combineMap(JSON.parse(JSON.stringify(markets)))

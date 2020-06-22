@@ -16,7 +16,7 @@
 * specific language governing permissions and limitations
 * under the License.
 */
-module.exports = {
+export const map = {
     "UTF8Encoding": true,
     "type": "FeatureCollection",
     "features": [{ 
