@@ -8,10 +8,14 @@ const findCityByName = name => {
   return features.filter(i => i.properties.name === name)
 }
 // 制作市场地图
-function makeMarketMapData () {
-  const list = Object.keys(markets).map(market => {
+/**
+ * 
+ * @param {Object} marketsData 
+ */
+function makeMarketMapData (marketsData) {
+  const list = Object.keys(marketsData).map(market => {
     const obj = {}
-    markets[market].map((i, index) => {
+    marketsData[market].map((i, index) => {
       const data = findCityByName(i)[0]
       if(index === 0) {
         obj.id = data.id
@@ -24,7 +28,6 @@ function makeMarketMapData () {
       }
       obj.geometry.coordinates.push(Array.isArray(data.geometry.coordinates[0]) ? data.geometry.coordinates[0] : data.geometry.coordinates)
       obj.geometry.encodeOffsets.push(Array.isArray(data.geometry.encodeOffsets[0][0]) ? data.geometry.encodeOffsets[0] : data.geometry.encodeOffsets )
-      console.log(JSON.stringify(obj))
     })
     return obj
   })
@@ -33,11 +36,16 @@ function makeMarketMapData () {
     console.log('数据已被追加到文件');
   });
 }
-
+makeMarketMapData(markets)
 
 // format excel
 const xlsx = require('node-xlsx').default;
 // 写market map映射文件
+/**
+ * 
+ * @param {*} fileName input filename xlsx
+ * @param {*} outputFile output map data js file or other file you like
+ */
 function makeMarketMap (fileName, outputFile) {
   // Parse a buffer
   const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${__dirname}/${fileName}`));
