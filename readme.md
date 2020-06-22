@@ -23,6 +23,7 @@ getConfigCitesJSON(configs)
 the map data looks like this in echarts
 
 <img src="./example.png" width="400">
+
 ### methods
 ```js
 /**
