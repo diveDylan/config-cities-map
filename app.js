@@ -1,22 +1,20 @@
 'use strict'
 const path = require('path')
 const fs = require('fs')
-const markets = require('./market.js')
-const map = require('./marketMap.js')
-const features = map.features
+const configs = require('./diyCitiesMapConfig.js')
+const citiesMap = require('./chineseCities.js')
+const features = citiesMap.features
 const findCityByName = name => {
   return features.filter(i => i.properties.name === name)
 }
-// 制作市场地图
 /**
- * 
+ * make city feature list
  * @param {Object} marketsData 
  */
-function makeMarketMapData (marketsData) {
-  const list = Object.keys(marketsData).map(market => {
+function makeConfigMapData (configs) {
+  const list = Object.keys(configs).map(config => {
     const obj = {}
-    marketsData[market].map((i, index) => {
-      console.log(i)
+    configs[config].map((i, index) => {
       const data = findCityByName(i)[0]
       if(index === 0) {
         obj.id = data.id
@@ -44,13 +42,12 @@ function makeMarketMapData (marketsData) {
 
 // format excel
 const xlsx = require('node-xlsx').default;
-// 写market map映射文件
 /**
- * 
+ * cities map映射文件
  * @param {*} fileName input filename xlsx
  * @param {*} outputFile output map data js file or other file you like
  */
-function makeMarketMap (fileName, outputFile) {
+function makeConfig (fileName, outputFile) {
   // Parse a buffer
   const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${__dirname}/${fileName}`));
   let marketMap = {}
@@ -67,11 +64,11 @@ function makeMarketMap (fileName, outputFile) {
 }
 
 /**
- * 
+ * make all cities map geoJson from cities config
  * @param {Array} citiesData cities map data
  * @return {File} map js file
  */
-function combineMap(citiesData) {
+function combineConfigsMapJSON(citiesData) {
   let list = []
   const marketMap = makeMarketMapData(citiesData)
   Object.keys(citiesData).forEach(city => {
@@ -94,9 +91,11 @@ function combineMap(citiesData) {
   })
 }
 
-// combineMap(markets)
-
-function getCitiesMarket(citiesData) {
+/**
+ * make cities map geoJson from cities config
+ * @param {Array} citiesData cities config
+ */
+function getConfigCitesJSON(citiesData) {
   Object.keys(citiesData).forEach(city => {
     const json =  {
       "type": "FeatureCollection",
@@ -116,4 +115,4 @@ function getCitiesMarket(citiesData) {
     })
   })
 }
-getCitiesMarket(markets)
+getConfigCitesJSON(configs)
