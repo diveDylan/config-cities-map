@@ -10,6 +10,19 @@ when your cities map data are different from chinese province map. we write a no
   node app.js
   ## or npm run start 
 ```
+### examples
+```js
+ const configs = {
+  // no need format
+  "深圳": [ "深圳", "珠海","香港", "澳门", "广州" ],
+};
+
+getConfigCitesJSON(configs)
+
+```
+the map data looks like this in echarts
+
+<img src="./example.png">
 ### methods
 ```js
 /**
@@ -39,17 +52,5 @@ function getConfigCitesJSON(citiesData) {
 }
 ```
 
-### examples
-```js
- const configs = {
-  // no need format
-  "深圳": [ "深圳", "珠海","香港", "澳门", "广州" ],
-};
 
-getConfigCitesJSON(configs)
-
-```
-the map data looks like this in echarts
-
-<img src="./example.png">
 
