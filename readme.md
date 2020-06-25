@@ -1,5 +1,5 @@
 ### why
-根据城市组合配置组合多个城市成一个地图
+根据城市组合配置组合多个城市成一个地图<br/>
 when your cities map data are different from chinese province map. we write a node tool to format the xlsx file to a data map, than transform the chinese cites map data to custom map data
 
 ### usage
